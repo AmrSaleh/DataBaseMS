@@ -1,0 +1,40 @@
+diff a/DataBaseMS/src/Parser/Parser.java b/DataBaseMS/src/Parser/Parser.java	(rejected hunks)
+@@ -648,10 +648,10 @@
+ 			operation.add(new ArrayList<ComparisonStatement>());
+ 			operation.get(0).add(whereOperations(seperatedStatement.get(2)));
+ 			try {
++//				table = f.selectTable(seperatedStatement.get(1)
++//						.replace(" ", ""), columns, operation);
+ 				table = f.selectTable(seperatedStatement.get(1)
+-						.replace(" ", ""), columns, operation);
+-				//table = f.selectTable(seperatedStatement.get(1)
+-					//.replace(" ", ""), columns, getPostfix(seperatedStatement.get(2)));
++					.replace(" ", ""), columns, getPostfix(seperatedStatement.get(2)));
+ 			} catch (Exception e) {
+ 				execute = false;
+ 				return e.getMessage();
+@@ -685,8 +685,8 @@
+ 			operation.add(new ArrayList<ComparisonStatement>());
+ 			operation.get(0).add(whereOperations(seperatedStatement.get(1)));
+ 			try {
+-				f.delete(seperatedStatement.get(0).replace(" ", ""), operation);
+-				//f.delete(seperatedStatement.get(0).replace(" ", ""), getPostfix(seperatedStatement.get(1)));
++//				f.delete(seperatedStatement.get(0).replace(" ", ""), operation);
++				f.delete(seperatedStatement.get(0).replace(" ", ""), getPostfix(seperatedStatement.get(1)));
+ 			} catch (Exception e) {
+ 				execute = false;
+ 				return e.getMessage();
+@@ -711,10 +711,10 @@
+ 			operation.add(new ArrayList<ComparisonStatement>());
+ 			operation.get(0).add(whereOperations(seperatedStatement.get(2)));
+ 			try {
++//				f.update(seperatedStatement.get(0).replace(" ", ""),
++//						newValues.get(0), newValues.get(1), operation);
+ 				f.update(seperatedStatement.get(0).replace(" ", ""),
+-						newValues.get(0), newValues.get(1), operation);
+-				//f.update(seperatedStatement.get(0).replace(" ", ""),
+-					//	newValues.get(0), newValues.get(1), getPostfix(seperatedStatement.get(2)));
++						newValues.get(0), newValues.get(1), getPostfix(seperatedStatement.get(2)));
+ 
+ 			} catch (Exception e) {
+ 				execute = false;
